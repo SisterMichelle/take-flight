@@ -1,36 +1,20 @@
-import React from 'react';
-import { useState } from 'react';
+import Menu from './components/Menu.jsx';
+import Footer from './components/Footer.jsx';
 
-import MLogo from './components/Animations/MLogo.jsx';
-import Sigrid from './components/Sigrid.jsx';
-import Button from './components/Button.jsx';
+import { QUOTES } from './data/quotes.js';
+import Quotes from './components/Quotes.jsx';
 
 import './index.css';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  function helloWorld() {
-      console.log("hello world");
-  }
-
-  return (
-    <>
-      <MLogo />
-      <h1 className="text-sky-400">Hello</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+  return <>
+      <Menu />
+      <div id="container" className="mx-auto w-4/5 h-screen">
+        {QUOTES.map((quote) => <Quotes key={quote.author} {...quote} />)}
       </div>
-      <p className="text-sky-600">
-        Click on the logo to see my <code>GitHub repos</code>
-      </p>
-      <Button onButtonClick={helloWorld}>Click here to send to the console</Button>
-      <Sigrid />
-    </>
-  )
+      <Footer />
+  </>
 }
 
 export default App;
