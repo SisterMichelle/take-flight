@@ -1,6 +1,6 @@
 export const QUOTES = [
     {
-        author: "Rumi",
+        authorName: "Rumi",
         quotes: [
             "Raise your words not voice, it is rain that grows flowers not thunder",
             "Speak a new language so that the world will be a new world",
@@ -15,7 +15,7 @@ export const QUOTES = [
         ]
     },
     {
-        author: "Nietzsche",
+        authorName: "Nietzsche",
         quotes: [
             "It is not when truth is dirty, but when it is shallow that the lover of knowledge is reluctant to step into its waters",
             "Silence is worst, all truths that are kept silent become poisonous",
