@@ -1,8 +1,9 @@
-# React + Vite
+# Hello
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is where I showcase my creativity and try out new ideas that I'm working on.
 
-Currently, two official plugins are available:
+## Animations with Lottie
+For full documentation, visit [docs.lottiefiles.com/lottie-interactivity](https://docs.lottiefiles.com/lottie-interactivity/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Lottie Web-Player Component](https://www.lottiefiles.com/web-player) or the
+[Lottie Player](https://github.com/airbnb/lottie-web).
