@@ -46,37 +46,6 @@ body {
     background-repeat: no-repeat;
 }
 
-/*SLIDE IN / OUT*/
-.slide-down {
-  animation: slide-in 0.5s down;
-  -webkit-animation: slide-in 0.5s;
-}
-
-.slide-up {
-  animation: slide-out 0.5s forwards;
-  -webkit-animation: slide-out 0.5s forwards;
-}
-  
-@keyframes slide-down {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(100%); }
-}
-
-@-webkit-keyframes slide-up {
-  0% { transform: translateX(0%); }
-  100% { -webkit-transform: translateX(100%); }
-}
-  
-@keyframes slide-down {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0%); }
-}
-
-@-webkit-keyframes slide-up {
-  0% { -webkit-transform: translateX(100%); }
-  100% { -webkit-transform: translateX(0%); }
-}
-
 /*DAY NIGHT TOGGLE*/
 .dayNight {
   width: 100px;
