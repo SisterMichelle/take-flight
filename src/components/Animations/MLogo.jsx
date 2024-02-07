@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import pinkM from '../../assets/pink-m';
+import pinkM from '../../assets/logo/pink-m';
 
 export default function MLogo() {      
     const defaultOptions = {

@@ -1,15 +1,28 @@
-import email from "../assets/email.svg";
-import twitter from "../assets/twitter-original.svg";
-import linkedin from "../assets/linkedin-plain.svg";
-import github from "../assets/github-original.svg";
+import { useRef } from 'react';
 
-export default function Socials() {
+import email from "../assets/icons/email.svg";
+import twitter from "../assets/icons/twitter-original.svg";
+import linkedin from "../assets/icons/linkedin-plain.svg";
+import github from "../assets/icons/github-original.svg";
+
+export default function Socials({ isOpen }) {
+    const socials = useRef();
+    let classList = "transition-transform ease-out overflow-hidden origin-top transform space-y-2 ";
+    
+    if(isOpen) {
+        classList += "scale-y-100 ";
+    } else {
+        classList += "scale-y-0";   
+    }
+
     return (
-        <ul className="flex gap-2 fixed left-20 top-7">
-            <li><a href="mailto:mdnewman@proton.me" target="_blank"><img className="icon" src={email} alt="Email Me" /></a></li>
-            <li><a href="https://www.linkedin.com/in/michellediannenewman/" target="_blank"><img className="icon" src={linkedin}  alt="Connect with me on LinkedIn" /></a></li>
-            <li><a href="http://x.com/michlalatweets" target="_blank"><img className="icon" src={twitter} alt="Tweets on X" /></a></li>
-            <li><a href="https://github.com/SisterMichelle" target="_blank"><img className="icon" src={github} alt="My GitHub Repos" /></a></li>
-        </ul>
+        <div className="relative left-8 top-8 bg-grey-400">
+            <ul ref={socials} id="socials" className={classList}>
+                <li><a href="mailto:mdnewman@proton.me" target="_blank"><img className="icon" src={email} alt="Email Me" /></a></li>
+                <li><a href="https://www.linkedin.com/in/michellediannenewman/" target="_blank"><img className="icon" src={linkedin}  alt="Connect with me on LinkedIn" /></a></li>
+                <li><a href="http://x.com/michlalatweets" target="_blank"><img className="icon" src={twitter} alt="Tweets on X" /></a></li>
+                <li><a href="https://github.com/SisterMichelle" target="_blank"><img className="icon" src={github} alt="My GitHub Repos" /></a></li>
+            </ul>
+        </div>
     );    
 }

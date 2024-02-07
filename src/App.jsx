@@ -14,7 +14,7 @@ function App() {
   return <>
       <Menu />
       
-      <div id="container" className="mx-auto w-4/5 h-screen">
+      <div id="container" className="relative mx-auto w-4/5 h-screen">
         <Greeting isDayTime={isDayTime} userName={userName} />
         <Quotes />
       </div>

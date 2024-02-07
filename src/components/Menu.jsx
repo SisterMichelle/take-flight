@@ -1,15 +1,21 @@
-import MLogo from './Animations/MLogo.jsx';
+import { useState } from 'react'; 
+
 import Logo from './Logo';
-// import Button from './Button.jsx';
-import DayNightToggle from './Animations/DayNightToggle.jsx';
+import DayNightToggle from './DayNightToggle.jsx';
 import Socials from './Socials.jsx';
 
 export default function Menu() {
+    const [ contactMe, setContactMe ] = useState(false); 
+    
+    function toggleContactMe() {
+        console.log("hello coffee ");
+        setContactMe(isOpen => !isOpen);
+    }
+
     return (
-        <menu className="fixed right-0 top-0">
-            <Logo />
-            <Socials />
-            {/* <Button onButtonClick={toggleDayNight}>{isDay ? "Sunset" : "Sunrise"}</Button> */}
+        <menu className="fixed left-0 top-0 w-full">
+            <Logo toggleContactMe={toggleContactMe} />
+            <Socials isOpen={contactMe} />
             <DayNightToggle />
         </menu>
     );
