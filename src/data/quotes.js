@@ -25,13 +25,17 @@ export const QUOTES = [
     {
         authorName: "Victor Hugo",
         quotes: [
-            "One can resist the invasion of armies; one cannot resist the invasion of ideas"
+            "One can resist the invasion of armies; one cannot resist the invasion of ideas",
+            "To learn to read is to light a fire. Every syllable that is spelled out is a spark",
+            "There is nothing like a dream to create the future"
         ]
     },
     {
         authorName: "Robert Frost",
         quotes: [
-            "The brain is a wonderful organ. It starts working the moment you get up in the morning, and doesn't stop until you get to the office"
+            "The brain is a wonderful organ. It starts working the moment you get up in the morning, and doesn't stop until you get to the office",
+            "A poem begins as a lump in the throat, a sense of wrong, a homesickness, a lovesickness",
+            "Happiness makes up in height for what it lacks in length"
         ]
     },
     {
@@ -55,25 +59,37 @@ export const QUOTES = [
     {
         authorName: "Bertrand Russell - British philosopher and logician",
         quotes: [
-            "The greatest challenge to any thinker is stating the problem in a way that will allow a solution"
+            "The greatest challenge to any thinker is stating the problem in a way that will allow a solution",
+            "The best life is the one in which the creative impulses play the largest part and the possessive impulses the smallest",
+            "There is an artist imprisoned in each one of us. Let him loose to spread joy everywhere"
         ]
     },
     {
-        authorName: "Ken Robinson - Author",
+        authorName: "Sir Ken Robinson - Author",
         quotes: [
-            "The role of a creative leader is not to have all the ideas; it's to create a culture where everyone can have ideas and feel that they're valued"
+            "The role of a creative leader is not to have all the ideas; it's to create a culture where everyone can have ideas and feel that they're valued",
+            "You can't be a creative thinker if you're not stimulating your mind, just as you can't be an Olympic athlete if you don't train regularly"
         ]
     },
     {
         authorName: "Maya Angelou - Poet, singer and civil rights activist",
         quotes: [
-            "You can't use up creativity, the more you use, the more you have"
+            "You can't use up creativity, the more you use, the more you have",
+            "We delight in the beauty of the butterfly, but rarely admit the changes it has gone through to achieve that beauty",
+            "You may not control all the events that happen to you, but you can decide not to be reduced by them",
+            "Try to be a rainbow in someone’s cloud",
+            "I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel",
+            "Courage is the most important of all the virtues because without courage, you can't practice any other virtue consistently",
+            "Nothing will work unless you do"
         ]
     },
     {
         authorName: "Steve Jobs",
         quotes: [
-            "Innovation is saying 'no' to 1,000 ideas"
+            "Innovation is saying 'no' to 1,000 ideas",
+            "Design is not just what it looks like and feels like. Design is how it works",
+            "Sometimes when you innovate, you make mistakes. It is best to admit them quickly, and get on with improving your other innovations",
+            "Chance favors the connected mind"
         ]
     },
     {

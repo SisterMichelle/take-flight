@@ -1,7 +1,7 @@
 import { useState } from 'react'; 
 
 // import Logo from './Logo';
-import MLogo from './Animations/MLogo.jsx'
+import MLogo from './Animations/MLogo.jsx';
 import DayNightToggle from './DayNightToggle.jsx';
 import Socials from './Socials.jsx';
 
@@ -10,7 +10,6 @@ export default function Menu() {
     const [isDay, setIsDay] = useState(true);
 
     function toggleContactMe() {
-        console.log("hello coffee ");
         setContactMe(isOpen => !isOpen);
     }
 

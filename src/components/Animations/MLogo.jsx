@@ -1,11 +1,11 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import pinkM from '../../assets/logo/m_MLogo';
+import pinkM from '../../assets/logo/mlogo-extended';
 
 export default function MLogo({ toggleContactMe }) {      
     const defaultOptions = {
+        loop: true,
         autoplay: true,
-        loop: false,
         animationData: pinkM,
         rendererSettings: {
           preserveAspectRatio: "xMidYMid slice"
@@ -13,26 +13,21 @@ export default function MLogo({ toggleContactMe }) {
     };
     
     const interactivity = {
-        mode: "scroll",
+        mode: "cursor",
         actions: [
             {
-                visibility: [0, 0.2],
-                type: "stop",
-                frames: [0]
+                type: "hover",
+                forceFlag: false
             }
         ]
     };
-
-    const style = {
-        width:50,
-        height:50
-    }
 
     return <>
         <div onClick={toggleContactMe} className="absolute left-4 top-5 cursor-pointer">
             <Lottie
                 options={defaultOptions}
-                style={style}
+                width={50} 
+                height={50} 
                 interactivity={interactivity}
             />
         </div>
