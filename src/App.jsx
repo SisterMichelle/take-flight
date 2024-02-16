@@ -11,22 +11,38 @@ import './App.css';
 
 function App() {
   const [authorPage, setAuthorPage] = useState();
-  let userName = "";
+  const [ bgTheme, setBgTheme ] = useState("sunrise");
+
+  let userName = "Michelle";
   const hours = new Date().getHours();
-  const isDayTime = hours > 6 && hours < 20;
+  const isMorning = hours > 4 && hours < 12;
 
   function gotoAuthorPage(id) {
     setAuthorPage(id);
   }
 
+  function handleBgToggle() {
+    if (bgTheme === "sunrise") {
+      setBgTheme("sunset");
+
+      document.body.classList.add("sunset");
+      document.body.classList.remove("sunrise");
+    }
+    else {
+      document.body.classList.add("sunrise");
+      document.body.classList.remove("sunset");
+    }
+  }
+
   return <>
-      <Menu />
-      <div id="container" className="relative mx-auto w-4/5 h-screen">
+      <Menu isAuthor={authorPage} bgToggle={handleBgToggle} />
+
+      <div id="container" className="mx-auto h-screen">
         {(authorPage) ? <Author id={authorPage} /> : <>
-        
-        <Greeting isDayTime={isDayTime} userName={userName} />
-        <QuoteOfTheDay setAuthorPage={gotoAuthorPage} />
+          <Greeting isMorning={isMorning} userName={userName} />
+          <QuoteOfTheDay setAuthorPage={gotoAuthorPage} />        
         </>}
+
       </div>
 
       <Footer />

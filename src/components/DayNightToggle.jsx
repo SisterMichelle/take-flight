@@ -1,8 +1,8 @@
-export default function DayNightToggle({ toggleDayNight }) {
+export default function DayNightToggle({ bgToggle }) {
     return (
-        <div className="absolute top-0 right-0 dayNight">
+        <div className="dayNight">
             <div className="toggle">
-                <input type="checkbox" id="dayNightToggle" onClick={toggleDayNight} />
+                <input type="checkbox" id="dayNightToggle" onClick={bgToggle} />
                 <label className="toggle-label" htmlFor="dayNightToggle"></label>
             </div>
         </div>

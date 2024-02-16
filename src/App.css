@@ -11,12 +11,10 @@ body {
   animation: fadeInBackground ease 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  font-family: "Sofia";
-  font-size: 30px;
 }
 
 .sunrise {
-  background: linear-gradient(250deg, #BFE3D5, #FFA44E);
+  background: linear-gradient(45deg, #ff8f8f, #fffc99)
 }
 
 .blocky-gradient {
@@ -26,11 +24,11 @@ body {
     background-attachment: fixed;
 }
 
-.sunset {
+.purple-gradient {
   background: linear-gradient(250deg, #7b2ff7, #2B0223);
 }
 
-.purple-constellation {
+.sunset {
     background-color: #000000;
     background-image: url("assets/bg/endless-constellation.svg");
     background-attachment: fixed;
@@ -44,7 +42,6 @@ body {
 
 #container {
     background-color: rgba(255, 255, 255, 0.3);
-
 }
 
 .fancy-font {
@@ -120,6 +117,5 @@ body {
 
 .author-name {
   font-weight: bold;
-  font-size: 24pt;
   cursor: pointer;
 }

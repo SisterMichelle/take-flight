@@ -23,7 +23,7 @@ export default function MLogo({ toggleContactMe }) {
     };
 
     return <>
-        <div onClick={toggleContactMe} className="absolute left-4 top-5 cursor-pointer">
+        <div onClick={toggleContactMe} className="cursor-pointer">
             <Lottie
                 options={defaultOptions}
                 width={50} 

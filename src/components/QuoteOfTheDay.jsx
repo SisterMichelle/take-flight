@@ -58,11 +58,9 @@ export default function QuoteOfTheDay({ setAuthorPage }) {
             <div className="flex p-20 items-center justify-center text-black font-sans">
                 <div>
                     <p className="text-sm md:text-2xl">{quote}</p>
-                    <p>~ 
-                        <span className="author-name" onClick={() => setAuthorPage(authorId)}>
-                        
-                        {authorName}
-                        
+                    <p>
+                        <span className="author-name text-sky-600 hover:text-sky-400" onClick={() => setAuthorPage(authorId)}>
+                            {authorName}
                         </span> 
                         {authorTitle}
                     </p>

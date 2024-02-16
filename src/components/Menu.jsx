@@ -4,32 +4,21 @@ import { useState } from 'react';
 import MLogo from './Animations/MLogo.jsx';
 import DayNightToggle from './DayNightToggle.jsx';
 import Socials from './Socials.jsx';
+import BreadCrumb from './BreadCrumb.jsx';
 
-export default function Menu() {
-    const [ contactMe, setContactMe ] = useState(false); 
-    const [isDay, setIsDay] = useState(true);
+export default function Menu({ isAuthor, bgToggle }) {
+    const [ contactMe, setContactMe ] = useState(false);
 
     function toggleContactMe() {
         setContactMe(isOpen => !isOpen);
     }
 
-    function handleDayNightClick() {
-        if (isDay) {
-          document.body.classList.add('sunset');
-          document.body.classList.remove('sunrise');
-        } else {
-          document.body.classList.add('sunrise');
-          document.body.classList.remove('sunset');
-        }
-  
-        setIsDay(_day => !isDay);
-    }
-
     return (
-        <menu className="fixed left-0 top-0 w-full">
+        <menu className="flex h-14 p-4 items-start">
             <MLogo toggleContactMe={toggleContactMe} />
-            <Socials isOpen={contactMe} isDay={isDay} />
-            <DayNightToggle toggleDayNight={handleDayNightClick} />
+            <Socials isOpen={contactMe} />
+            <BreadCrumb isAuthor={isAuthor} />
+            <DayNightToggle bgToggle={bgToggle} />
         </menu>
     );
 }
