@@ -57,7 +57,6 @@ body {
 /*DAY NIGHT TOGGLE*/
 .dayNight {
   width: 100px;
-  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,30 +88,63 @@ body {
   display: block;
 }
 
-.toggle-label:before {
-  width: 100%;
-  height: 100%;
-  background-color: #2196F3; /* Day color */
-  border-radius: 17px;
-  transition: background-color 0.3s ease;
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .toggle-label:before {
+    width: 100%;
+    height: 100%;
+    background-color: #2E2E2E; /* Night color */
+    border-radius: 17px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-label:after {
+    content: "🌙"; /* Moon emoji for night */
+    color: #fff;
+    font-size: 18px;
+    line-height: 34px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    right: 5px;
+  }
+  
+  .toggle input:checked + .toggle-label:before {
+    background-color: #2196F3; /* Day color */
+  }
+  
+  .toggle input:checked + .toggle-label:after {
+    content: "☀️"; /* Sun emoji for day */
+    transform: translateX(-26px);
+  }
 }
 
-.toggle-label:after {
-  content: "☀️"; /* Sun emoji for day */
-  color: #fff;
-  font-size: 18px;
-  line-height: 34px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.toggle input:checked + .toggle-label:before {
-  background-color: #2E2E2E; /* Night color */
-}
-
-.toggle input:checked + .toggle-label:after {
-  content: "🌙"; /* Moon emoji for night */
-  transform: translateX(26px);
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  .toggle-label:before {
+    width: 100%;
+    height: 100%;
+    background-color: #2196F3; /* Day color */
+    border-radius: 17px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-label:after {
+    content: "☀️"; /* Sun emoji for day */
+    color: #fff;
+    font-size: 18px;
+    line-height: 34px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .toggle input:checked + .toggle-label:before {
+    background-color: #2E2E2E; /* Night color */
+  }
+  
+  .toggle input:checked + .toggle-label:after {
+    content: "🌙"; /* Moon emoji for night */
+    transform: translateX(26px);
+  }
 }
 
 .author-name {

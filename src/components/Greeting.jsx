@@ -6,12 +6,14 @@ export default function Greeting({ isMorning, userName }) {
         greeting += "Good Afternoon!";
     }
 
-    return <>
-        {/* <h1 className="flex p-20 text-black font-sans text-2xl">{greeting} {userName}</h1>
-        <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{greeting} {userName}</h1>
-     */}
-        <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">{greeting}</span> {userName}</h1>
-        <h2 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">How are you today?</h2>
-        <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Browse some motivational quotes</p>
-    </>
+    return (
+    <div className="flex flex-col items-center">
+        <h1 className="font-extrabold text-3xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 h-[3rem] md:h-[4rem] lg:h-[6rem]">
+            {greeting}
+        </h1>
+        <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-black dark:text-white">
+            How are you today?
+        </h2>
+    </div>
+    );
 }

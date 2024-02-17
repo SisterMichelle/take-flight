@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import authorProfile from '../assets/authors/placeholder.jpg';
-
 // Parses the JSON returned by a network request
 const parseJSON = (resp) => (resp.json ? resp.json() : resp);
 
@@ -18,17 +16,17 @@ const checkStatus = (resp) => {
 
 const headers = { "Content-Type": "application/json" };
 
-export default function Author({ id }) {
+export default function QuotesByAuthor({ authorId }) {
     const [ error, setError ] = useState(null);
-    const [ author, setAuthor ] = useState(null);
+    const [ quotes, setQuotes ] = useState(null);
     const [ loading, setLoading ] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost/api/authors/?author_id=${id}`, { headers, method: "GET" })
+        fetch(`http://localhost/api/quotes/?author_id=${authorId}`, { headers, method: "GET" })
           .then(checkStatus)
           .then(parseJSON)
-          .then((author) => {
-              setAuthor(author);
+          .then((quotes) => {
+              setQuotes(quotes);
               setLoading(false);
           })
           .catch((error) => setError(error));
@@ -38,19 +36,19 @@ export default function Author({ id }) {
         return <div>An error occured: {error.message}</div>
     }
 
+    if(!loading) {
+        console.log(quotes);
+    }
+
     return (
-        <div className="flex flex-col mx-10">
-            {
-                loading ? 'Loading...' : 
-                <>
-                    <div className="flex justify-start">
-                        <img className="w-20 h-30" src={authorProfile} alt="Author Profile" />
-                    </div>
-                    
-                    <p className="author-name">{author.authorName} - {author.authorNationality} {author.authorTitle}</p>
-                    <div>{author.authorBio}</div>
-                </> 
-            }
+        <div className="text-stone-400">
+            {loading ? 'Loading...' : <>
+                {quotes[0].quotes.map((quote, i) => {
+                    return (
+                        <li key={i}>{quote}</li>
+                    );
+                })}
+            </>}
         </div>
-    );
+    ); 
 }

@@ -1,8 +1,8 @@
-export default function BreadCrumb({ isAuthor }) {
+export default function BreadCrumb({ isAuthor, setAuthorId }) {
     const refresh = () => window.location.reload(true);
 
     return (
-        <nav className="flex p-2 text-stone-900" aria-label="Breadcrumb">
+        <nav className="flex p-2 text-stone-900 dark:text-stone-100" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-3 rtl:space-x-reverse">
                 <li className="inline-flex items-center">
                     <a onClick={refresh} className="cursor-pointer inline-flex items-center text-sm font-medium hover:text-sky-400">
@@ -18,7 +18,7 @@ export default function BreadCrumb({ isAuthor }) {
                         <svg className="w-3 h-3 text-gray-400 mx-1 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
                         </svg>
-                        <span href="#" className="ms-1 text-sm font-medium text-sky-400 md:ms-2">
+                        <span onClick={() => {setAuthorId(null)}} className="ms-1 text-sm font-medium md:ms-2 text-sky-400">
                             Author
                         </span>
                     </div>
