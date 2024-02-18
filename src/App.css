@@ -54,6 +54,11 @@ body {
     background-repeat: no-repeat;
 }
 
+.author-name {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /*DAY NIGHT TOGGLE*/
 .dayNight {
   width: 100px;
@@ -64,8 +69,8 @@ body {
 
 .toggle {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  bottom: 10px;
+  left: 20px;
   z-index: 2;
 }
 
@@ -145,9 +150,4 @@ body {
     content: "🌙"; /* Moon emoji for night */
     transform: translateX(26px);
   }
-}
-
-.author-name {
-  font-weight: bold;
-  cursor: pointer;
 }
