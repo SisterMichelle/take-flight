@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import authorProfile from '../assets/authors/placeholder.jpg';
+import QuotesByAuthor from '../components/QuotesByAuthor.jsx';
+import profile from '../assets/authors/placeholder.jpg';
 
 // Parses the JSON returned by a network request
 const parseJSON = (resp) => (resp.json ? resp.json() : resp);
@@ -38,19 +39,23 @@ export default function Author({ id }) {
         return <div>An error occured: {error.message}</div>
     }
 
-    return (
-        <div className="flex flex-col mx-10">
-            {
-                loading ? 'Loading...' : 
-                <>
-                    <div className="flex justify-start">
-                        <img className="w-20 h-30" src={authorProfile} alt="Author Profile" />
-                    </div>
-                    
-                    <p className="author-name">{author.authorName} - {author.authorNationality} {author.authorTitle}</p>
-                    <div>{author.authorBio}</div>
-                </> 
+    return <>
+            {loading ? 'Loading...' : 
+            <>  
+            <div className="flex justify-start gap-4">
+                <img className="w-20 h-30" src={profile} alt="Author Profile" />
+                <div className="flex flex-wrap gap-4 justify-items-center items-baseline">
+                    <h3 className="text-lg md:text-3xl lg:text-4xl font-bold min-w-max dark:text-white">{author.authorName}</h3>
+                    <p className="text-xs md:text-sm lg:text-2xl dark:text-white">{author.authorNationality} {author.authorTitle}</p>
+                </div>
+            </div>
+
+            <QuotesByAuthor authorId={id} />
+            
+            <div className="flex flex-col grow rounded-lg drop-shadow-lg p-2 m-4 bg-white text-sm lg:text-lg p-4">
+                {author.authorBio}
+            </div>
+            </> 
             }
-        </div>
-    );
+    </>
 }

@@ -42,11 +42,9 @@ export default function DayNightToggle() {
     }
 
     return (
-        <div className="dayNight">
-            <div className="toggle">
-                <input type="checkbox" id="dayNightToggle" onClick={handleBgToggle} />
-                <label className="toggle-label" htmlFor="dayNightToggle"></label>
-            </div>
+        <div className="toggle">
+            <input type="checkbox" id="dayNightToggle" onClick={handleBgToggle} />
+            <label className="toggle-label" htmlFor="dayNightToggle"></label>
         </div>
     );
 }

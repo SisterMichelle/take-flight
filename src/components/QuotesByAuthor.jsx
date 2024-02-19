@@ -36,16 +36,12 @@ export default function QuotesByAuthor({ authorId }) {
         return <div>An error occured: {error.message}</div>
     }
 
-    if(!loading) {
-        console.log(quotes);
-    }
-
     return (
         <div className="text-stone-400">
             {loading ? 'Loading...' : <>
                 {quotes[0].quotes.map((quote, i) => {
                     return (
-                        <li key={i}>{quote}</li>
+                        <p key={i}>{quote}</p>
                     );
                 })}
             </>}

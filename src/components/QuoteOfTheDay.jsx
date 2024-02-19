@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 
 // Parses the JSON returned by a network request
 const parseJSON = (resp) => (resp.json ? resp.json() : resp);
@@ -16,7 +16,7 @@ const checkStatus = (resp) => {
 
 const headers = { "Content-Type": "application/json" };
 
-export default function QuoteOfTheDay({ setAuthorPage }) {
+const qotd = forwardRef(function QuoteOfTheDay({ setAuthorPage }, ref) {
     const [ error, setError ] = useState(null);
     const [ quotes, setQuotes ] = useState(null);
     const [ loading, setLoading ] = useState(true);
@@ -53,17 +53,24 @@ export default function QuoteOfTheDay({ setAuthorPage }) {
         quote = quotesByAuthor.quotes[random];
     }
 
-    return <>
-        {loading ? <p>Loading...</p> : <>
-            <div className="flex flex-col grow p-2 items-center justify-center font-sans">
+    return (
+        <div className="h-[400px]">
+            {loading ? <p>Loading...</p> : <>
+            <h3 ref={ref} className="my-10 font-extrabold text-2xl md:text-3xl lg:text-4xl text-sky-400">
+                Quote of the day
+            </h3>
+            <div className="flex flex-col grow rounded-lg drop-shadow-lg m-4 p-4 bg-white w-2/3 justify-center">
                 <p className="text-sm md:text-2xl">{quote}</p>
                 <p>
-                    <span className="author-name text-sky-600 hover:text-sky-400" onClick={() => setAuthorPage(authorId)}>
+                    <span className="cursor-pointer text-sky-600 hover:text-sky-400" onClick={() => setAuthorPage(authorId)}>
                         {authorName}
                     </span> 
                     <span className="text-xs md:text-sm">{authorTitle}</span>
                 </p>
-            </div>        
-        </>}
-    </>
-}
+            </div>
+            </>}
+        </div>
+    );
+});
+
+export default qotd;

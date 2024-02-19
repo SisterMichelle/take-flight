@@ -1,48 +1,63 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import Menu from './components/Menu.jsx';
-import Emotion from './components/Emotion.jsx';
-import Footer from './components/Footer.jsx';
+import MenuQuickLinks from './components/MenuQuickLinks.jsx';
+import Welcome from './components/Welcome.jsx';
 import QuoteOfTheDay from './components/QuoteOfTheDay.jsx';
-import QuotesByAuthor from './components/QuotesByAuthor.jsx';
+import QuestionOfTheDay from './components/QuestionOfTheDay.jsx';
+import Footer from './components/Footer.jsx';
 import Author from './components/Author.jsx';
 
 import './index.css';
 import './App.css';
 
 function App() {
-  let userName = "Michelle";
-  const hours = new Date().getHours();
-  const isMorning = hours > 4 && hours < 12;
+  let userName = "";
+  const quoteOfTheDayRef = useRef();
+  const journalPromptRef = useRef();
+  const footerContactMeRef = useRef();
+
   const [ authorId, setAuthorId ] = useState(null);
 
   function gotoAuthorPage(id) {
     setAuthorId(id);
   }
 
-  return (
-    <div className="flex bg- flex-col justify-between h-screen">
-        <Menu isMorning={isMorning} userName={userName} isAuthor={authorId} setIsAuthor={setAuthorId} />
+  function handleSectionScroll(ref) {
+    console.log(ref.current.className);
+      ref.current.scrollIntoView({
+          behavior: "smooth"
+      });
+  }
 
-        <div id="welcome" className="flex flex-col grow relative rounded-lg drop-shadow-lg m-4 p-4 bg-white opacity-10">
-          <Emotion />
+  return <>
+    <Menu userName={userName} isAuthor={authorId} goHome={gotoAuthorPage} />
+
+    <div className="flex h-screen">
+
+        <div id="quick-links" className="basis-1/5 md:basis-1/12 my-20 min-w-max flex flex-col">
+            <MenuQuickLinks handleSectionScroll={handleSectionScroll} quoteOfTheDayRef={quoteOfTheDayRef} journalPromptRef={journalPromptRef} footerContactMeRef={footerContactMeRef} />
         </div>
 
-        <div className="flex flex-col grow rounded-lg drop-shadow-lg m-4 p-4 bg-white opacity-30">
+        <div className="basis-4/5 md:basis-11/12 my-32">
+
           {(authorId) ?
             <>
-              <Author id={authorId} />
-              <QuotesByAuthor authorId={authorId} />
+                <Author id={authorId} />
             </> 
-            :
-            <>
-              <QuoteOfTheDay setAuthorPage={gotoAuthorPage} />     
+            : 
+            <>                
+                <Welcome userName={userName} />
+                <QuoteOfTheDay setAuthorPage={gotoAuthorPage} ref={quoteOfTheDayRef} />
+                <QuestionOfTheDay userName={userName} ref={journalPromptRef} />
             </>
           }
+
+          <Footer id="footer" ref={footerContactMeRef} />
         </div>
-        <Footer />
+
     </div>
-  );
+  </>
 }
 
 export default App;

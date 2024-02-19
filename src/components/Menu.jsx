@@ -1,27 +1,11 @@
-import { useState } from 'react'; 
-
 import MLogo from './Animations/MLogo.jsx';
-import Socials from './Socials.jsx';
 import BreadCrumb from './BreadCrumb.jsx';
-import Greeting from '../components/Greeting.jsx';
-import Sigrid from '../components/Sigrid.jsx';
 
-export default function Menu({ isMorning, userName, isAuthor, setAuthorId }) {
-    const [ contactMe, setContactMe ] = useState(false);
-
-    function toggleContactMe() {
-        setContactMe(isOpen => !isOpen);
-    }
-
-    return <>
-        <menu className="flex justify-between w-full">
-            <MLogo toggleContactMe={toggleContactMe} />
-            <BreadCrumb isAuthor={isAuthor} setAuthorId={setAuthorId} />
-            <Greeting isMorning={isMorning} userName={userName} />
-            <Sigrid />
+export default function Menu({ isAuthor, goHome }) {
+    return (
+        <menu className="fixed flex justify-start w-full items-center max-h-28 min-h-max z-10">
+            <MLogo />
+            <BreadCrumb isAuthor={isAuthor} goHome={goHome} />
         </menu>
-        <div className="absolute left-8 top-20 bg-grey-400">
-            <Socials isOpen={contactMe} isFooter={false} />
-        </div>
-    </>
+    );
 }

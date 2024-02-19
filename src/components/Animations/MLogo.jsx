@@ -2,7 +2,7 @@ import React from 'react';
 import Lottie from 'react-lottie';
 import pinkM from '../../assets/logo/mlogo-extended';
 
-export default function MLogo({ toggleContactMe }) {      
+export default function MLogo() {      
     const defaultOptions = {
         loop: true,
         autoplay: true,
@@ -23,7 +23,7 @@ export default function MLogo({ toggleContactMe }) {
     };
 
     return <>
-        <div onClick={toggleContactMe} className="cursor-pointer">
+        <div id="logo" className="grow-0 min-w-20 cursor-pointer bg-black w-20 h-20 m-4 pt-4 rounded-full">
             <Lottie
                 options={defaultOptions}
                 width={50} 
