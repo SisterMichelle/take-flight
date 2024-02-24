@@ -1,4 +1,4 @@
-export default function Emotion() {
+export default function Emotion({id}, ref) {
     const roundButton = "grow-0 w-8 h-8 py-1 px-2 bg-stone-700 hover:bg-cyan-400 dark:bg-stone-700 dark:hover:bg-sky-900 rounded-full cursor-pointer";
 
     return (

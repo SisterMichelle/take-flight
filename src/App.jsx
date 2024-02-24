@@ -4,18 +4,22 @@ import Menu from './components/Menu.jsx';
 import MenuQuickLinks from './components/MenuQuickLinks.jsx';
 import Welcome from './components/Welcome.jsx';
 import QuoteOfTheDay from './components/QuoteOfTheDay.jsx';
-import QuestionOfTheDay from './components/QuestionOfTheDay.jsx';
-import Footer from './components/Footer.jsx';
 import Author from './components/Author.jsx';
+import JournallingPrompts from './components/JournallingPrompts.jsx';
+import Photos from './components/Photos.jsx';
+import Footer from './components/Footer.jsx';
 
 import './index.css';
 import './App.css';
 
 function App() {
   let userName = "";
+  const emotionRef = useRef();
   const quoteOfTheDayRef = useRef();
-  const journalPromptRef = useRef();
+  const journallingPromptRef = useRef();
+  const photosRef = useRef();
   const footerContactMeRef = useRef();
+  const topRef = useRef();
 
   const [ authorId, setAuthorId ] = useState(null);
 
@@ -24,9 +28,9 @@ function App() {
   }
 
   function handleSectionScroll(ref) {
-    console.log(ref.current.className);
       ref.current.scrollIntoView({
-          behavior: "smooth"
+          behavior: "smooth",
+          block: "center"
       });
   }
 
@@ -36,10 +40,10 @@ function App() {
     <div className="flex h-screen">
 
         <div id="quick-links" className="basis-1/5 md:basis-1/12 my-20 min-w-max flex flex-col">
-            <MenuQuickLinks handleSectionScroll={handleSectionScroll} quoteOfTheDayRef={quoteOfTheDayRef} journalPromptRef={journalPromptRef} footerContactMeRef={footerContactMeRef} />
+            <MenuQuickLinks isAuthor={authorId} handleSectionScroll={handleSectionScroll} emotionRef={emotionRef} quoteOfTheDayRef={quoteOfTheDayRef} journallingPromptRef={journallingPromptRef} photosRef={photosRef} footerContactMeRef={footerContactMeRef} topRef={topRef}/>
         </div>
 
-        <div className="basis-4/5 md:basis-11/12 my-32">
+        <div ref={topRef} className="basis-4/5 md:basis-11/12 my-32">
 
           {(authorId) ?
             <>
@@ -47,9 +51,10 @@ function App() {
             </> 
             : 
             <>                
-                <Welcome userName={userName} />
+                <Welcome userName={userName} ref={emotionRef}/>
                 <QuoteOfTheDay setAuthorPage={gotoAuthorPage} ref={quoteOfTheDayRef} />
-                <QuestionOfTheDay userName={userName} ref={journalPromptRef} />
+                <JournallingPrompts id="prompts" ref={journallingPromptRef} />
+                <Photos ref={photosRef} />
             </>
           }
 
