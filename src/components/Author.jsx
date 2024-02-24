@@ -42,11 +42,10 @@ export default function Author({ id }) {
     return <>
             {loading ? 'Loading...' : 
             <>  
-            <div className="flex justify-start gap-4">
-                <img className="w-20 h-30" src={profile} alt="Author Profile" />
+            <div className="flex justify-center gap-4">
                 <div className="flex flex-wrap gap-4 justify-items-center items-baseline">
-                    <h3 className="text-lg md:text-3xl lg:text-4xl font-bold min-w-max dark:text-white">{author.authorName}</h3>
-                    <p className="text-xs md:text-sm lg:text-2xl dark:text-white">{author.authorNationality} {author.authorTitle}</p>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold min-w-max dark:text-white">{author.authorName}</h3>
+                    <p className="uppercase text-xs md:text-sm lg:text-2xl dark:text-white">{author.authorNationality} {author.authorTitle}</p>
                 </div>
             </div>
 

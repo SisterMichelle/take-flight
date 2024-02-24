@@ -24,10 +24,11 @@ export default function({ isAuthor, handleSectionScroll, emotionRef, quoteOfTheD
                 <div className={roundButton} onClick={() => handleSectionScroll(journallingPromptRef)}>
                     <img src={journal} className="w-4 h-4" alt="Journalling Prompt" />
                 </div>
+                <div className={roundButton} onClick={() => handleSectionScroll(photosRef)}>
+                    <img src={photos} className="w-4 h-4" alt="Photography" />
+                </div>
             </>}
-            <div className={roundButton} onClick={() => handleSectionScroll(photosRef)}>
-                <img src={photos} className="w-4 h-4" alt="Photography" />
-            </div>
+
             <div className={roundButton} onClick={() => handleSectionScroll(footerContactMeRef)}>
                 <img src={contact} className="w-4 h-4" alt="Contact Me" />
             </div>
