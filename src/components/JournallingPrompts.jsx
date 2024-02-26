@@ -1,4 +1,6 @@
 import { forwardRef, useState, useEffect } from "react";
+import prevImg from "../assets/icons/prev.svg";
+import nextImg from "../assets/icons/next.svg";
 
 // Parses the JSON returned by a network request
 const parseJSON = (resp) => (resp.json ? resp.json() : resp);
@@ -30,26 +32,50 @@ const prompt = forwardRef(function JournallingPrompts({ id }, JournallingPrompts
               setLoading(false);
           })
           .catch((error) => setError(error));
-
-          console.log(prompts);
     }, []);
 
     if (error) {
         return <div>An error occured: {error.message}</div>
     }
+
+    const [ currPrompt, setCurrPrompt ] = useState(0);
     
+    function setPrevPrompt() {
+        let prev = currPrompt - 1;
+        if (prev < 0) {
+            prev = prompts.length - 1;
+        }
+        setCurrPrompt(prev);
+    }
+
+    function setNextPrompt() {
+        let next = currPrompt + 1; 
+        if (next >= prompts.length) {
+            next = 0;
+        }
+        setCurrPrompt(next);
+    }
+
     return <>
-        <h3 id={id} className="my-10 font-extrabold text-2xl md:text-3xl lg:text-4xl text-sky-400">
+        <h3 id={id} className="md:my-10 font-extrabold text-2xl md:text-3xl lg:text-4xl text-sky-400">
             Journalling Prompts
         </h3>
-        <div ref={JournallingPromptsRef} className="flex flex-col grow rounded-lg drop-shadow-lg m-4 p-4 bg-white w-2/3 justify-center">
+        <div ref={JournallingPromptsRef} className="flex flex-col grow rounded-lg drop-shadow-lg md:m-4 p-4 w-full md:w-2/3 justify-center">
+            <div onClick={setPrevPrompt} className="z-20 absolute top-30 left-[10px] md:left-0 grow-0 shrink-0 w-8 h-8 bg-stone-700 hover:bg-cyan-400 dark:bg-stone-700 dark:hover:bg-sky-900 rounded-full cursor-pointer">
+                <img src={prevImg} alt="Previous Prompt" className="w-4 h-4 m-2" />
+            </div>
             {loading ? 'Loading...' : <>
                 {prompts.map((prompt, i) => {
                     return (
-                        <p key={i}>{prompt.promptText}</p>
+                        <p key={i} className={(currPrompt === i) ? "bg-white rounded-full shadow-2xl min-h-min p-10 m-5 italic text-lg md:text-2xl lg:text-3xl text-black quoteblock" : "hidden"}>
+                            {prompt.promptText}
+                        </p>
                     );
                 })}
             </>}
+            <div onClick={setNextPrompt} className="absolute top-30 right-[10px] md:right-0 grow-0 shrink-0 w-8 h-8 bg-stone-700 hover:bg-cyan-400 dark:bg-stone-700 dark:hover:bg-sky-900 rounded-full cursor-pointer">
+                <img src={nextImg} alt="Next Prompt" className="w-4 h-4 m-2" />
+            </div>
         </div>
     </>
 });

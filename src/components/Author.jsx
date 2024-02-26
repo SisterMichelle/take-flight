@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 import QuotesByAuthor from '../components/QuotesByAuthor.jsx';
-import profile from '../assets/authors/placeholder.jpg';
 
 // Parses the JSON returned by a network request
 const parseJSON = (resp) => (resp.json ? resp.json() : resp);
