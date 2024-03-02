@@ -6,11 +6,11 @@ export default function Emotion({id}, ref) {
             <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl text-black dark:text-white">
                 How are you today?
             </h2>
-            <ul className="flex gap-2">
+            {/* <ul className="flex gap-2">
                 <li className={roundButton}>1</li>
                 <li className={roundButton}>2</li>
                 <li className={roundButton}>3</li>
-            </ul>
+            </ul> */}
         </div>
     );
 }

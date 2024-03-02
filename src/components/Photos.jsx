@@ -23,25 +23,28 @@ const photos = forwardRef(function Photos({_}, ref) {
         setCurrImg(next);
     }
 
-    return (
-        <div className="relative grid grid-cols-3 h-[60vh] md:h-[90vh] overflow-y-hidden place-items-center bg-black rounded-2xl m-5">
-            <div onClick={setPrevImage} className="z-20 absolute left-5 grow-0 shrink-0 w-8 h-8 bg-stone-700 hover:bg-cyan-400 dark:bg-stone-700 dark:hover:bg-sky-900 rounded-full cursor-pointer">
-                <img src={prevImg} alt="Previous Photo" className="w-4 h-4 m-2" />
-            </div>
-            <ul ref={ref} className="grid col-span-3 overflow-y-hidden place-items-end lg:mx-40">
-                {PHOTOS.map((photo, i) => 
-                    <li key={i} className={currImg === i ? "": "hidden"}>
-                        <h3 className="absolute top-10 left-5 md:left-10 z-30 text-xl md:text-2xl drop-shadow-xl text-white top-100">{photo.description}</h3>
-                        <img className="rounded-2xl" src={photo.image} alt={photo.title} title={photo.description}/>
-                    </li>
-                )}
-            </ul>
-            <img src="./MLogo.svg" className="absolute z-10 opacity-10 rounded-full w-40 h-40" />
-            <div onClick={setNextImage} className="z-20 absolute right-5 grow-0 shrink-0 w-8 h-8 bg-stone-700 hover:bg-cyan-400 dark:bg-stone-700 dark:hover:bg-sky-900 rounded-full cursor-pointer">
-                <img src={nextImg} alt="Next Photo" className="w-4 h-4 m-2" />
-            </div>
-        </div>
-    );
+    return <>
+            <h3 ref={ref} className="md:my-10 font-extrabold text-2xl md:text-3xl lg:text-4xl text-sky-400">
+                Photos
+            </h3>
+            <div className="relative grid grid-cols-3 h-[60vh] md:h-[90vh] overflow-y-hidden place-items-center bg-black rounded-2xl m-5">
+                <div onClick={setPrevImage} className="z-20 absolute left-5 grow-0 shrink-0 w-8 h-8 bg-stone-700 hover:bg-cyan-400 dark:bg-stone-700 dark:hover:bg-sky-900 rounded-full cursor-pointer">
+                    <img src={prevImg} alt="Previous Photo" className="w-4 h-4 m-2" />
+                </div>
+                <ul className="grid col-span-3 overflow-y-hidden place-items-end lg:mx-40">
+                    {PHOTOS.map((photo, i) => 
+                        <li key={i} className={currImg === i ? "": "hidden"}>
+                            <h3 className="absolute top-10 left-5 md:left-10 z-30 text-xl md:text-2xl drop-shadow-xl text-white top-100">{photo.description}</h3>
+                            <img className="rounded-2xl" src={photo.image} alt={photo.title} title={photo.description}/>
+                        </li>
+                    )}
+                </ul>
+                <img src="./MLogo.svg" className="absolute z-10 opacity-10 rounded-full w-40 h-40" />
+                <div onClick={setNextImage} className="z-20 absolute right-5 grow-0 shrink-0 w-8 h-8 bg-stone-700 hover:bg-cyan-400 dark:bg-stone-700 dark:hover:bg-sky-900 rounded-full cursor-pointer">
+                    <img src={nextImg} alt="Next Photo" className="w-4 h-4 m-2" />
+                </div>
+            </div>        
+        </>
 });
 
 export default photos;
